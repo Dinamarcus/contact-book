@@ -1,0 +1,23 @@
+version: "3"
+services:
+  api:
+    build: ./api-service
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    command: npm start
+    volumes:
+      - .:/app/
+      - /app/node_modules
+  db:
+    image: postgres:10.4
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: felix
+      POSTGRES_PASSWORD: pwdformydb
+      POSTGRES_DB: sandbox
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
