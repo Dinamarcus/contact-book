@@ -26,10 +26,10 @@ How to access the app:
 - Backend: `localhost:8080`
 
 ## API endpoints ⚙
-- `GET /person`: lists all persons
-- `GET /person/:id`: lists a specific person
-- `POST /person`: creates a new person
+- `GET /contact`: lists all contacts
+- `GET /contact/:id`: lists a specific contact
+- `POST /contact`: creates a new contact
   - Payload: { name: _name_, age: _age_ }
-- `PUT /person/:id`: updates a specific person
+- `PUT /contact/:id`: updates a specific contact
   - Payload: { name: _name_, age: _age_ }
-- `DELETE /person/:id`: deletes a specific person
+- `DELETE /contact/:id`: deletes a specific contact

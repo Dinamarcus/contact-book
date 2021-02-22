@@ -1,7 +1,7 @@
 {
   "name": "api-service",
   "version": "1.0.0",
-  "description": "A simple API for managing persons.",
+  "description": "A simple API for managing contacts.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
