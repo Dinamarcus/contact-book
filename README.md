@@ -1,10 +1,10 @@
 # Contact Book 📗
-This project is a simple Full Stack app for managing your contacts. It contains an API developed with Node.js and PostgreSQL and a frontend developed in Angular using Nebular which is deployed using Nginx. The whole app can be deployed using Docker (especially Docker compose). 
+This project is a simple Full Stack app for managing your contacts. It contains an API developed with Node.js and PostgreSQL and a frontend developed in Angular using Material UI which is deployed using Nginx. The whole app can be deployed using Docker (especially Docker compose). 
 ## Goal of the project
 The main goal of this project is to show how: 
 - Docker compose works
 - Node.js and PostgreSQL can be used to store and retrieve data
-- Angular can be used along with the UI Kit Nebular
+- Angular can be used along with the Material UI Kit 
 - an Angular app can be deployed using Nginx
 
 ## Getting Started 🚀
