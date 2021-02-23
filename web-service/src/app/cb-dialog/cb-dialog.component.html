@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Add contact 👱‍♂️</h1>
+<div mat-dialog-content>
+  <p>Who's your new contact?</p>
+  <mat-form-field>
+    <mat-label>Firstname</mat-label>
+    <input matInput [(ngModel)]="data.firstname">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Lastname</mat-label>
+    <input matInput [(ngModel)]="data.lastname">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>E-Mail</mat-label>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data">Save</button>
+</div>
