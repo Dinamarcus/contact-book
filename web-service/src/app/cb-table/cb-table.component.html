@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="contacts" class="mat-elevation-z8">
+<img *ngIf="contacts?.length === 0" src="../assets/empty.svg">
+<table *ngIf="contacts?.length > 0" mat-table [dataSource]="contacts" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
     <td mat-cell *matCellDef="let contact"> {{contact.id}} </td>
