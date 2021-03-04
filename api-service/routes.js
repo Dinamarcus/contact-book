@@ -18,10 +18,10 @@ router.get('/contact/:id', (req, res, next) => {
 });
 
 router.post('/contact', (req, res, next) => {
-  const { name, age } = req.body;
+  const { firstname, lastname, email, phone, birthdate } = req.body;
   db.query(
-    'INSERT INTO contact (name, age) VALUES($1, $2) RETURNING *;',
-    [name, age],
+    'INSERT INTO contact (firstname, lastname, email, phone, birthdate) VALUES($1, $2, $3, $4, $5) RETURNING *;',
+    [firstname, lastname, email, phone, birthdate],
     (error, results) => {
       if (error) throw error;
       res.status(201).json(results.rows);
@@ -31,10 +31,10 @@ router.post('/contact', (req, res, next) => {
 
 router.put('/contact/:id', (req, res, next) => {
   const { id } = req.params;
-  const { name, age } = req.body;
+  const { firstname, lastname, email, phone, birthdate } = req.body;
   db.query(
-    'UPDATE contact SET name = $1, age = $2 WHERE id = $3 RETURNING *;',
-    [name, age, id],
+    'UPDATE contact SET firstname = $1, lastname = $2, email = $3, phone = $4, birthdate = $5 WHERE id = $6 RETURNING *;',
+    [firstname, lastname, email, phone, birthdate, id],
     (error, results) => {
       if (error) throw error;
       res.status(200).json(results.rows);
