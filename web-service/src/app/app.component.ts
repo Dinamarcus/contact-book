@@ -21,10 +21,10 @@ export class AppComponent {
   email: string;
   phone: string;
 
-  constructor(public dialog: MatDialog, private apiService: ApiService) { }
+  constructor(public dialog: MatDialog) { }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CbDialogComponent, {
+    this.dialog.open(CbDialogComponent, {
       width: '450px',
       data: {
         firstname: this.firstname,
@@ -32,12 +32,6 @@ export class AppComponent {
         email: this.email,
         phone: this.phone
       }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.apiService.createContact(
-        result
-      );
     });
   }
 }

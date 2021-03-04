@@ -1,24 +1,38 @@
 <h1 mat-dialog-title>Add contact 👱‍♂️</h1>
 <div mat-dialog-content>
   <p>Who's your new contact?</p>
-  <mat-form-field>
+  <mat-form-field appearance="fill"> 
     <mat-label>Firstname</mat-label>
-    <input matInput [(ngModel)]="data.firstname">
+    <input matInput [(ngModel)]="data.firstname" />
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <mat-label>Lastname</mat-label>
-    <input matInput [(ngModel)]="data.lastname">
+    <input matInput [(ngModel)]="data.lastname" />
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <mat-label>E-Mail</mat-label>
-    <input matInput [(ngModel)]="data.email">
+    <input matInput [(ngModel)]="data.email" />
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field appearance="fill">
     <mat-label>Phone</mat-label>
-    <input matInput [(ngModel)]="data.phone">
+    <input matInput [(ngModel)]="data.phone" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a birthdate</mat-label>
+    <input matInput [matDatepicker]="picker" disabled [(ngModel)]="data.birthdate"/>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker disabled="false" #picker></mat-datepicker>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="data">Save</button>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button
+  (click)="onSaveClick()"
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="data"
+    [disabled]="isInputInValid()"
+  >
+    Save
+  </button>
 </div>
