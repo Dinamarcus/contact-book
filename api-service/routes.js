@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const db = require('./database');
 
-router.get('/contact', (req, res, next) => {
+router.get('/contacts', (req, res, next) => {
   db.query('SELECT * FROM contact;', (error, results) => {
     if (error) next(error);
     res.status(200).json(results.rows);
   });
 });
 
-router.get('/contact/:id', (req, res, next) => {
+router.get('/contacts/:id', (req, res, next) => {
   const { id } = req.params;
   db.query('SELECT * FROM contact WHERE id = $1;', [id], (error, results) => {
     if (error) next(error);
@@ -17,7 +17,7 @@ router.get('/contact/:id', (req, res, next) => {
   });
 });
 
-router.post('/contact', (req, res, next) => {
+router.post('/contacts', (req, res, next) => {
   const { firstname, lastname, email, phone, birthdate } = req.body;
   db.query(
     'INSERT INTO contact (firstname, lastname, email, phone, birthdate) VALUES($1, $2, $3, $4, $5) RETURNING *;',
@@ -29,7 +29,7 @@ router.post('/contact', (req, res, next) => {
   );
 });
 
-router.put('/contact/:id', (req, res, next) => {
+router.put('/contacts/:id', (req, res, next) => {
   const { id } = req.params;
   const { firstname, lastname, email, phone, birthdate } = req.body;
   db.query(
@@ -42,7 +42,7 @@ router.put('/contact/:id', (req, res, next) => {
   );
 });
 
-router.delete('/contact/:id', (req, res, next) => {
+router.delete('/contacts/:id', (req, res, next) => {
   const { id } = req.params;
   db.query('DELETE FROM contact WHERE id = $1 RETURNING *', [id], (error, results) => {
     if (error) next(error);
