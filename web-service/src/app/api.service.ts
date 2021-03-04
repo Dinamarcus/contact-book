@@ -12,21 +12,23 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  createContact(contact: Contact): Observable<Contact> {
+  createContact(contact: Contact): Observable<Contact[]> {
     const parsedBirthdate = new Date(contact.birthdate);
     contact.birthdate = `${parsedBirthdate.getFullYear()}-${parsedBirthdate.getMonth()+1}-${parsedBirthdate.getDate()}`;
-    return this.httpClient.post<Contact>(this.contactsEndpoint, contact);
+    return this.httpClient.post<Contact[]>(this.contactsEndpoint, contact);
   }
 
   readContacts(): Observable<Contact[]> {
     return this.httpClient.get<Contact[]>(this.contactsEndpoint);
   }
 
-  updateContact(id: number, contact: Contact): Observable<Contact> { 
-    return this.httpClient.put<Contact>(`${this.contactsEndpoint}/${id}`, contact);
+  updateContact(id: number, contact: Contact): Observable<Contact[]> {
+    const parsedBirthdate = new Date(contact.birthdate);
+    contact.birthdate = `${parsedBirthdate.getFullYear()}-${parsedBirthdate.getMonth()+1}-${parsedBirthdate.getDate()}`; 
+    return this.httpClient.put<Contact[]>(`${this.contactsEndpoint}/${id}`, contact);
   }
 
-  deleteContact(id: number): Observable<Contact> { 
-    return this.httpClient.delete<Contact>(`${this.contactsEndpoint}/${id}`);
+  deleteContact(id: number): Observable<Contact[]> { 
+    return this.httpClient.delete<Contact[]>(`${this.contactsEndpoint}/${id}`);
   }
 }

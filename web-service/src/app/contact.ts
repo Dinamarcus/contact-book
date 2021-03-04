@@ -6,3 +6,8 @@ export interface Contact {
   phone: string;
   birthdate: string;
 }
+
+export interface ContactNotifier {
+  contact: Contact;
+  operation: string;
+}
