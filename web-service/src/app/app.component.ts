@@ -19,7 +19,7 @@ export class AppComponent {
   lastname: string;
   email: string;
   phone: string;
-  birthdate: Date;
+  birthdate: string;
 
   constructor(public dialog: MatDialog) { }
 
@@ -32,7 +32,6 @@ export class AppComponent {
         email: this.email,
         phone: this.phone,
         birthdate: this.birthdate
-        
       }
     });
   }

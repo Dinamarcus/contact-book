@@ -4,5 +4,5 @@ export interface Contact {
   lastname: string;
   email: string;
   phone: string;
-  birthdate: Date;
+  birthdate: string;
 }

@@ -13,6 +13,8 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   createContact(contact: Contact): Observable<Contact> {
+    const parsedBirthdate = new Date(contact.birthdate);
+    contact.birthdate = `${parsedBirthdate.getFullYear()}-${parsedBirthdate.getMonth()+1}-${parsedBirthdate.getDate()}`;
     return this.httpClient.post<Contact>(this.contactsEndpoint, contact);
   }
 
