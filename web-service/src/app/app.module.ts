@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatNativeDateModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatNativeDateModule, MatTableModule, MAT_DATE_LOCALE } from '@angular/material';
 import { CbTableComponent } from './cb-table/cb-table.component';
 import { CbDialogComponent } from './cb-dialog/cb-dialog.component';
 import { ApiService } from './api.service';
@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, {provide: MAT_DATE_LOCALE, useValue: 'de-DE'}],
   bootstrap: [AppComponent],
   entryComponents: [CbDialogComponent]
 })

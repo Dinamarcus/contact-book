@@ -1,6 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from './api.service';
 import { CbDialogComponent } from './cb-dialog/cb-dialog.component';
 
 export interface DialogData {
@@ -20,6 +19,7 @@ export class AppComponent {
   lastname: string;
   email: string;
   phone: string;
+  birthdate: Date;
 
   constructor(public dialog: MatDialog) { }
 
@@ -30,7 +30,9 @@ export class AppComponent {
         firstname: this.firstname,
         lastname: this.lastname,
         email: this.email,
-        phone: this.phone
+        phone: this.phone,
+        birthdate: this.birthdate
+        
       }
     });
   }

@@ -27,12 +27,12 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onCancelClick()">Cancel</button>
   <button
-  (click)="onSaveClick()"
+    (click)="onSaveClick(data.update)"
     mat-raised-button
     color="primary"
     [mat-dialog-close]="data"
     [disabled]="isInputInValid()"
   >
-    Save
+    {{data.update ? 'Update' : 'Save'}}
   </button>
 </div>

@@ -7,8 +7,8 @@ import { Contact } from './contact';
   providedIn: 'root'
 })
 export class ApiService {
-  host = `localhost:8080`;
-  contactsEndpoint = `${this.host}/contacts`
+  host = `http://192.168.0.222:8080`;
+  contactsEndpoint = `${this.host}/contact`
 
   constructor(private httpClient: HttpClient) { }
 
