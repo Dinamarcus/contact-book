@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatTableModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatLabel, MatNativeDateModule, MatTableModule } from '@angular/material';
 import { CbTableComponent } from './cb-table/cb-table.component';
 import { CbDialogComponent } from './cb-dialog/cb-dialog.component';
 import { ApiService } from './api.service';
@@ -19,8 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
@@ -28,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent],
