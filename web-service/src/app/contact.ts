@@ -7,6 +7,10 @@ export interface Contact {
   birthdate: string;
 }
 
+export interface DialogData extends Contact {
+  update: boolean;
+}
+
 export interface ContactNotifier {
   contact: Contact;
   operation: string;

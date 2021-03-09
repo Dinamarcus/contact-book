@@ -31,7 +31,8 @@ export class AppComponent {
         lastname: this.lastname,
         email: this.email,
         phone: this.phone,
-        birthdate: this.birthdate
+        birthdate: this.birthdate,
+        update: false
       }
     });
   }

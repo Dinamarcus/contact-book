@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from '../api.service';
-import { Contact } from '../contact';
+import { Contact, DialogData } from '../contact';
 import { NotifierService } from '../notifier.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class CbDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CbDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Contact, 
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, 
     private apiService: ApiService,
     private notifierService: NotifierService) { }
 
