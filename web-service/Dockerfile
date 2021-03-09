@@ -1,34 +1,34 @@
 # Stage 1
-# Create image based on the official Node 8 image from dockerhub
-
+# Create image based on the official Node 14 image from dockerhub
 FROM node:14 as node
 
 # Create a directory where our app will be placed
 RUN mkdir -p /usr/src/app
 
 # Change directory so that our commands run inside this new directory
-
 WORKDIR /usr/src/app
 
 # Copy dependency definitions
+COPY package*.json ./
 
-#COPY package*.json ./
+# Install npm dependecies
+RUN npm install
 
-# Install dependecies
-
-#RUN npm install
-
-# Get all the code needed to run the app
-
-#COPY . .
+# Copy the source code to run the app
+COPY . .
 
 # Run the angular in product
-#RUN npm run build --prod
+RUN npm run build --prod
 
 # Stage 2
 FROM arm32v7/nginx
 
-#copy dist content to html nginx folder, config nginx to point in index.html
-#COPY --from=node /usr/src/app/dist /usr/share/nginx/html
-COPY /dist/web-service /usr/share/nginx/html
+# Copy the static content to the HTML folder of NGINX
+COPY --from=node /usr/src/app/dist/web-service /usr/share/nginx/html
+
+# In case you already built your Angular app outside Docker you can directly copy the build output to the NGINX server by uncommenting line 31
+# (if thats the case you can also comment/remove the steps from line 12 to line 21 for faster performance)
+# COPY /dist/web-service /usr/share/nginx/html
+
+# Copy the NGINX configuration
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
