@@ -37,8 +37,16 @@ How to access the app:
 
 ## Preview 👀
 Empty Contact Book
+<<<<<<< HEAD
 ![](.github/preview/empty-view.PNG)
 Add new contact
 ![](.github/preview/add-view.PNG)
 View all contacts
 ![](.github/preview/contact-view.PNG)
+=======
+![](.github/preview/empty-view.png)
+Add new contact
+![](.github/preview/add-view.png)
+View all contacts
+![](.github/preview/contact-view.png)
+>>>>>>> d480fb04e893248ced6e2f6e569505c87f65721f
