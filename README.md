@@ -36,9 +36,9 @@ How to access the app:
 - `DELETE /contacts/:id`: deletes a specific contact
 
 ## Preview 👀
-Empty Contact Book
+#### Empty Contact Book
 ![](.github/preview/empty-view.PNG)
-Add new contact
+#### Add a new contact
 ![](.github/preview/add-view.PNG)
-View all contacts
+#### View all contacts
 ![](.github/preview/contact-view.PNG)
