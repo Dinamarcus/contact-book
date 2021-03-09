@@ -1,5 +1,6 @@
 # Contact Book 📗
 This project is a simple Full Stack app for managing your contacts. It contains an API developed with Node.js and PostgreSQL and a frontend developed in Angular using Material UI which is deployed using Nginx. The whole app can be deployed using Docker (especially Docker compose). 
+
 ## Goal of the project
 The main goal of this project is to show how: 
 - Docker compose works
@@ -22,7 +23,7 @@ Moreover, I recommend using Linux Ubuntu 20.04, since that was my setup when dev
 4. The contact book app should now be up and running 😄
 
 How to access the app:
-- Frontend: `localhost:4200`
+- Frontend: `localhost:80`
 - Backend: `localhost:8080`
 
 ## API endpoints ⚙
@@ -33,3 +34,11 @@ How to access the app:
 - `PUT /contacts/:id`: updates a specific contact
   - Payload: same as for `POST`
 - `DELETE /contacts/:id`: deletes a specific contact
+
+## Preview 👀
+Empty Contact Book
+![](.github/preview/empty-view.PNG)
+Add new contact
+![](.github/preview/add-view.PNG)
+View all contacts
+![](.github/preview/contact-view.PNG)
