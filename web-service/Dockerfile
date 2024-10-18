@@ -21,7 +21,7 @@ COPY . .
 RUN npm run build --prod
 
 # Stage 2
-FROM arm32v7/nginx
+FROM nginx:latest
 
 # Copy the static content to the HTML folder of NGINX
 COPY --from=node /usr/src/app/dist/web-service /usr/share/nginx/html
