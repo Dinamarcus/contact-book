@@ -31,4 +31,4 @@ COPY --from=node /usr/src/app/dist/web-service /usr/share/nginx/html
 # COPY /dist/web-service /usr/share/nginx/html
 
 # Copy the NGINX configuration
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
