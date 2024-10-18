@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  namespace: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: dinamarcus/contact-book-web  
+          ports:
+            - containerPort: 80
+        - name: api
+          image: dinamarcus/contact-book-api   
+          ports:
+            - containerPort: 8080
+          env:
+            - name: POSTGRES_USER
+              value: "felix"
+            - name: POSTGRES_PASSWORD
+              value: "pwdformydb"
+            - name: POSTGRES_DB
+              value: "sandbox"
+        - name: db
+          image: postgres:10.4
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: "felix"
+            - name: POSTGRES_PASSWORD
+              value: "pwdformydb"
+            - name: POSTGRES_DB
+              value: "sandbox"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: pgdata
+      volumes:
+        - name: pgdata
+          persistentVolumeClaim:
+            claimName: pgdata-pvc
