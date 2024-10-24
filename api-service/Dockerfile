@@ -9,7 +9,7 @@ COPY api-service/package*.json ./
 # Instalar dependencias
 RUN npm install
 
-# Copiar código fuente del api-service
+# Copiar el resto del código
 COPY api-service/ .
 
 # Variables de entorno
@@ -19,5 +19,5 @@ ENV NODE_ENV=production
 # Exponer puerto
 EXPOSE 8080
 
-# Comando para iniciar la aplicación
-CMD ["node", "server.js"]
+# Asegurarse de que estamos en el directorio correcto al iniciar
+CMD cd /usr/src/app/api-service && node server.js
