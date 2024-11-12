@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: web-service
-        image: web-service:${BUILD_NUMBER}
+        image: dinamarcus/contact-book-web
         ports:
         - containerPort: 80
